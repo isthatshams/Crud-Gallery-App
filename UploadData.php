@@ -168,7 +168,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['upload'])) {
                         <button command="show-modal" commandfor="dialog" class="border border-sky-500 py-2 px-6 rounded-lg text-sm bg-sky-400 dark:bg-sky-600 text-white hover:bg-sky-300 hover:dark:bg-sky-700">add Picture
                     </div>
                     <div class="flex items-center">
-                        <label class="text-lg text-white cursor-pointer" for="filter">Date</label>
+                        <span class="text-lg text-white cursor-pointer" for="filter">Date</span>
                         <?php
                         $order = "ASC";
                         if (isset($_GET['Date']) && $_GET['Date'] == "ASC") {
@@ -176,7 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['upload'])) {
                         } else {
                             $order = "ASC";
                         }
-                        echo ('<a href="UploadData.php?Date=' . $order . '" id="filter" class="cursor-pointer">');
+                        echo ('<a href="UploadData.php?Date=' . $order . '" id="filter" name="filter" class="cursor-pointer">');
                         echo ('<img src="imgs/svg/arrow.svg" alt="arrow" class="size-6 invert ' .
                             ($order == "ASC" ? "" : "rotate-180")
                             . '">');
