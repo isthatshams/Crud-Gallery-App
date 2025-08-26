@@ -4,6 +4,12 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 require_once "pdo.php";
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: SignIn.php");
+    exit;
+}
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update'])) {
     if (isset($_SESSION['user_id']) && isset($_POST['last_name']) && isset($_POST['first_name'])) {
         $first_name = trim($_POST['first_name']) ?? '';

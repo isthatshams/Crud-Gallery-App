@@ -5,6 +5,10 @@ error_reporting(E_ALL);
 require_once "pdo.php";
 date_default_timezone_set('Asia/Amman');
 
+if (!isset($_SESSION['user_id'])) {
+    header("Location: SignIn.php");
+    exit;
+}
 
 $sql = "SELECT COUNT(*) AS total_rows FROM Images;";
 $stmt = $pdo->query($sql);
@@ -155,7 +159,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['upload'])) {
         <div class="container mx-auto">
             <div class="flex flex-col">
                 <div class="w-full bg-sky-500 py-3 px-4 rounded-t-lg flex justify-between items-center sticky top-0 mb-5">
-                    <h2 class="text-lg font-bold text-white">Photos</h2>
+                    <h2 class="text-lg font-bold text-white hidden md:block ">Photos</h2>
+                    <button class="md:hidden">
+                        <img src="./imgs/svg/menu.svg" alt="menu-icon" class="size-6 invert dark:invert-0">
+                    </button>
+
                     <div>
                         <button command="show-modal" commandfor="dialog" class="border border-sky-500 py-2 px-6 rounded-lg text-sm bg-sky-400 dark:bg-sky-600 text-white hover:bg-sky-300 hover:dark:bg-sky-700">add Picture
                     </div>
@@ -188,9 +196,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['upload'])) {
                         $end = min($start + $perQuarter, $totalRows);
 
                         for ($j = $start; $j < $end; $j++) {
+                            echo ('<div class = "flex flex-col my-2 pb-2 bg-white 
+                            dark:bg-black rounded-lg shadow-md dark:text-white">');
                             echo '<img src="http://' . $_SERVER['HTTP_HOST'] . "/CrudApp" .
                                 $rows[$j]['image_location'] . $rows[$j]['image_filename'] .
-                                '" class="mt-2 w-full rounded-lg shadow-md">';
+                                '" class="mb-2 w-full rounded-lg shadow-md">';
+                            echo ('<h3 class="px-2">' . $rows[$j]['image_filename'] .
+                                '</h3>');
+                            echo ('<p class="px-2">Uploaded At: ' . $rows[$j]['uploaded_at'] .
+                                '</p>');
+                            echo ('</div>');
                         }
                         echo ('</div>');
                     }

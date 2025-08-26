@@ -1,7 +1,13 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+session_start();
 require_once "pdo.php";
+
+if (!isset($_SESSION['user_id'])) {
+    header("Location: SignIn.php");
+    exit;
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add'])) {
     if ($_POST['first_name'] && $_POST['last_name'] && $_POST['email'] && $_POST['password']  && $_POST['status'] && $_POST['role']) {
