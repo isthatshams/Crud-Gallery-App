@@ -84,7 +84,7 @@ if (isset($_POST['log_out'])) {
                                 </a>
                             </li>
                             <li class="mb-1 w-full rounded-lg bg-sky-300 dark:bg-sky-600">
-                                <a href="Settings.php" class="flex gap-x-3 px-3 py-2 rounded-lg hover:bg-sky-400 dark:hover:bg-sky-500">
+                                <a href="Settings.php" class="flex gap-x-3 px-3 py-2 rounded-lg hover:bg-sky-300 dark:hover:bg-sky-600">
                                     <img src="./imgs/svg/users.svg" alt="Logo" class="size-6 invert dark:invert-0">
                                     <p class="font-bold text-white dark:text-gray-100">Settings</p>
                                 </a>

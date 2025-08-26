@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['upload'])) {
                                 </a>
                             </li>
                             <li class="mb-1 w-full">
-                                <a href="Settings.php" class="flex gap-x-3 px-3 py-2 rounded-lg hover:bg-sky-400 dark:hover:bg-sky-500">
+                                <a href="Settings.php" class="flex gap-x-3 px-3 py-2 rounded-lg hover:bg-sky-300 dark:hover:bg-sky-600">
                                     <img src="./imgs/svg/users.svg" alt="Logo" class="size-6 invert dark:invert-0">
                                     <p class="text-black dark:text-white">Settings</p>
                                 </a>

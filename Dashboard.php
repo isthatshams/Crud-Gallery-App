@@ -88,7 +88,7 @@ if (isset($_POST['log_out'])) {
                                 </a>
                             </li>
                             <li class="mb-1 w-full">
-                                <a href="Settings.php" class="flex gap-x-3 px-3 py-2 rounded-lg hover:bg-sky-400 dark:hover:bg-sky-500">
+                                <a href="Settings.php" class="flex gap-x-3 px-3 py-2 rounded-lg hover:bg-sky-300 dark:hover:bg-sky-600">
                                     <img src="./imgs/svg/users.svg" alt="Logo" class="size-6 invert dark:invert-0">
                                     <p class="text-black dark:text-white">Settings</p>
                                 </a>
@@ -210,8 +210,8 @@ if (isset($_POST['log_out'])) {
                         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                             echo ('    <tr class="bg-white dark:bg-gray-800 border-b border-gray-200 hover:bg-gray-50 hover:dark:bg-gray-700">');
                             echo ('<th scope="row" class="px-6 py-4 font-medium text-gray-900 dark:text-gray-100 whitespace-nowrap">' . $row['user_id'] . '</th>');
+                            echo ('    <td class="px-6 py-4 dark:text-gray-400">' . $row['first_name'] . ' ' . $row['last_name'] . '</td>');
                             echo ('   <td class="px-6 py-4 dark:text-gray-400">' . $row['email'] . '</td>');
-                            echo ('    <td class="px-6 py-4 dark:text-gray-400">' . $row['first_name'] . ' ' . $row['first_name'] . '</td>');
                             echo ('   <td class="px-6 py-4 dark:text-gray-400 hidden min-[1000px]:table-cell">' . $row['password_hash'] . '</td>');
                             echo ('<td class="px-3 py-4 hidden min-[1120px]:table-cell">');
                             echo ('   <span class="px-3 py-1 text-sm font-medium rounded-full ' .  (strtolower($row['status']) === 'active' ? 'bg-green-100 text-green-700' : (strtolower($row['status']) === 'banned' ? 'bg-red-100 text-red-700' :
@@ -219,7 +219,7 @@ if (isset($_POST['log_out'])) {
                             echo (' </td>');
                             echo ('<td class="px-6 py-4 dark:text-gray-400">' . $row['role'] . '</td>');
                             echo ('<td class="px-6 py-4 text-right">');
-                            echo ('<a href="#" class="font-medium text-sky-500 dark:text-blue-500 hover:underline">Edit</a>');
+                            echo ('<a href="EditUser.php?user_id=' . $row['user_id'] . '" class="font-medium text-sky-500 dark:text-blue-500 hover:underline">Edit</a>');
                             echo ('</td>');
                             echo ('</tr>');
                         }
