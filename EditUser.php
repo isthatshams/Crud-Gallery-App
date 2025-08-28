@@ -126,8 +126,8 @@
                                 <div>
                                     <p class="text-black dark:text-gray-200">Email</p>
                                     <?php
-                                    echo ('<input name="email" id="email" type="text" value="' . $user['email'] . '
-                                    " class="disabled:cursor-not-allowed disabled:bg-gray-50 dark:disabled:bg-gray-700 disabled:text-gray-500 dark:disabled:text-gray-300 bg-gray-100 dark:bg-gray-700 my-3 py-4 px-2 rounded-lg w-full text-black dark:text-white">');
+                                    echo ('<input name="email" id="email" type="text" value="' . $user['email'] .
+                                        '" class="disabled:cursor-not-allowed disabled:bg-gray-50 dark:disabled:bg-gray-700 disabled:text-gray-500 dark:disabled:text-gray-300 bg-gray-100 dark:bg-gray-700 my-3 py-4 px-2 rounded-lg w-full text-black dark:text-white">');
                                     ?>
                                 </div>
                                 <div>
